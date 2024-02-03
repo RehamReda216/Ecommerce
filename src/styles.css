@@ -11,6 +11,8 @@
 
  body{
     font-family: var(--font-family) !important;
+    overflow: auto; /* or overflow: auto; */
+
  }
 
  .rating-color
