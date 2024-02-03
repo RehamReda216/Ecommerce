@@ -1,15 +1,25 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AuthService } from '../Services/auth/auth.service';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-signup',
   standalone: true,
   imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './signup.component.html',
-  styleUrl: './signup.component.css'
+  styleUrl: './signup.component.css',
+  providers:[AuthService]
 })
 export class SignupComponent {
+    
+    constructor(private _AuthService:AuthService, private _Router: Router)
+    {
 
+    }
+    isLoading:boolean=false;
+    apiError:string= '';
     registerForm:FormGroup = new FormGroup({
       name: new FormControl(null,[Validators.required,Validators.minLength(3), Validators.maxLength(20)]),
       email: new FormControl(null,[Validators.required,Validators.email]),
@@ -20,6 +30,22 @@ export class SignupComponent {
 
     handleRegister(registerForm:FormGroup)
     {
-      console.log(registerForm);
+      this.isLoading = true;
+      if(registerForm.valid)
+      {
+          this._AuthService.register(registerForm.value).subscribe({
+            next:(response)=> {
+              if(response.message == 'success'){
+                this.isLoading=false;
+                //Navigate Login
+                this._Router.navigate(['/login'])
+              }
+            },
+            error:(err) => {
+              this.isLoading=false;
+              this.apiError= err.error.message;
+            }
+          })
+      }
     }
 }

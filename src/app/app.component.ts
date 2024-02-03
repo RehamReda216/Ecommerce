@@ -11,13 +11,15 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
+import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet,HomeComponent,AboutComponent,BrandsComponent,CartComponent,
     CategoriesComponent,FooterComponent,LoginComponent,NavbarComponent,
-    NotfoundComponent,SignupComponent,ReactiveFormsModule],
+    NotfoundComponent,SignupComponent,ReactiveFormsModule,CommonModule,HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
