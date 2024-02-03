@@ -12,4 +12,8 @@ export class AuthService {
   {
       return this._HttpClient.post('https://route-ecommerce.onrender.com/api/v1/auth/signup',userData)
   }
+  login(userData:object):Observable<any>
+  {
+      return this._HttpClient.post('https://route-ecommerce.onrender.com/api/v1/auth/signin',userData)
+  }
 }
