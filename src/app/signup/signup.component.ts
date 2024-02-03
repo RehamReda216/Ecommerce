@@ -14,10 +14,7 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent {
     
-    constructor(private _AuthService:AuthService, private _Router: Router)
-    {
-
-    }
+    constructor(private _AuthService:AuthService, private _Router: Router){}
     isLoading:boolean=false;
     apiError:string= '';
     registerForm:FormGroup = new FormGroup({
