@@ -1,8 +1,10 @@
-<nav
-    class="navbar navbar-expand-sm navbar-light bg-light"
->
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand text-main fw-bold h1" href="#">Whiplash</a>
+        <div>
+            <img src="./assets/images/drum-logo.svg" alt="eCommerce HTML Template">
+        <a class="navbar-brand text-main fw-bold h1" href="#"> Whiplash</a>
+        </div>
+        
         
         <div class="collapse navbar-collapse " id="collapsibleNavId">
             <ul  class="navbar-nav me-auto mt-2 mt-lg-0">
@@ -36,10 +38,10 @@
                     <i class="fab mx-2 fa-youtube"></i>
                 </li>
                 <li *ngIf="!isLogin" class="nav-item">
-                    <a  class="nav-link" routerLink="login">Login</a>
+                    <a  class="nav-link fw-bold" routerLink="login">Login</a>
                 </li>
                 <li *ngIf="!isLogin" class="nav-item">
-                    <a  class="nav-link" routerLink="signup">Sign Up</a>
+                    <a  class="nav-link fw-bold" routerLink="signup">Sign Up</a>
                 </li> 
                 <li *ngIf="isLogin" class="nav-item">
                     <span  class=" cursor-pointer nav-link">Log out</span>
