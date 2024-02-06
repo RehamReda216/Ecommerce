@@ -26,6 +26,7 @@ export class LoginComponent {
 
   handleLogin(loginForm:FormGroup)
   {
+    debugger
     this.isLoading = true;
     if(loginForm.valid)
     {

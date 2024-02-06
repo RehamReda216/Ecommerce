@@ -3,23 +3,25 @@ import { Injectable } from '@angular/core';
 import { jwtDecode } from 'jwt-decode';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router';
-
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   
   userData = new BehaviorSubject(null);
-  constructor(private _HttpClient:HttpClient, private _Router: Router) { }
+  constructor(private _HttpClient:HttpClient, private _Router: Router) 
+  {
+    if(localStorage.getItem('userToken') !== null)
+    {
+        this.decodeUserData()
+    }
+  }
   decodeUserData()
   {
-    let encodedToken = JSON.stringify(localStorage.getItem('userToken'));
-  
-    if (encodedToken) {
+      let encodedToken = JSON.stringify(localStorage.getItem('userToken'));
       let decodedToken: any = jwtDecode(encodedToken);
       console.log(decodedToken);
       this.userData.next(decodedToken);
-    }
   }
   logOut()
   {

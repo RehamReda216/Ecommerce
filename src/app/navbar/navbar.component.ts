@@ -11,13 +11,18 @@ import { CommonModule } from '@angular/common';
   providers:[AuthService]
 })
 export class NavbarComponent {
-
+    
     isLogin:boolean=false;
+    logOut(){
+      this._AuthService.logOut();
+    }    
     constructor(private _AuthService: AuthService)
     {
+        debugger
         _AuthService.userData.subscribe({
           //checks repeatedly on userData
           next:() => {
+            var auth=_AuthService.userData.getValue();
             if(_AuthService.userData.getValue() !== null)
             {
               console.log('isLogin true');
