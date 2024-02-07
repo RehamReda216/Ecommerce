@@ -8,7 +8,6 @@ import { CommonModule } from '@angular/common';
   imports: [RouterModule,CommonModule],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
-  providers:[AuthService]
 })
 export class NavbarComponent {
     

@@ -13,6 +13,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { AuthService } from './service/auth/auth.service';
+import { ProductsService } from './service/products/products.service';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +23,8 @@ import { CommonModule } from '@angular/common';
     CategoriesComponent,FooterComponent,LoginComponent,NavbarComponent,
     NotfoundComponent,SignupComponent,ReactiveFormsModule,CommonModule,HttpClientModule],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  providers:[AuthService,ProductsService]
 })
 export class AppComponent {
   title = 'ecommerce';

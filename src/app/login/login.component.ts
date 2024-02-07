@@ -9,7 +9,6 @@ import { CommonModule } from '@angular/common';
   imports: [ReactiveFormsModule,CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
-  providers:[AuthService]
 })
 export class LoginComponent {
 

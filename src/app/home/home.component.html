@@ -1,6 +1,7 @@
 <div class="row">
     <div *ngFor="let product of products" class="col-md-2">
         <div class="product px-2 py-4">
+            <a [routerLink]="['/productdetails']">
                 <span class="text-main fw-bold">{{product.category.name}}</span>
                 <img class="w-100" src={{product.imageCover}} alt="">
                 <h3 class="h6 fw-bold">{{product.title.split(' ').slice(0,2).join(' ')}}</h3>  
@@ -12,6 +13,7 @@
                     </div>
                 </div>
                 <button class="btn bg-main text-white w-100 my-2">Add To Cart</button>
+            </a>
         </div>
     </div>
 </div>
