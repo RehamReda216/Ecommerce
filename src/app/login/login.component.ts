@@ -14,7 +14,9 @@ export class LoginComponent {
 
   constructor(private _AuthService:AuthService, private _Router: Router)
   {
-
+      if(localStorage.getItem('userToken') !== null){
+        _Router.navigate(['/home']) 
+      }
   }
   isLoading:boolean=false;
   apiError:string= '';
@@ -25,7 +27,6 @@ export class LoginComponent {
 
   handleLogin(loginForm:FormGroup)
   {
-    debugger
     this.isLoading = true;
     if(loginForm.valid)
     {

@@ -15,13 +15,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AuthService } from './service/auth/auth.service';
 import { ProductsService } from './service/products/products.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { MainsliderComponent } from './mainslider/mainslider.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,HomeComponent,AboutComponent,BrandsComponent,CartComponent,
-    CategoriesComponent,FooterComponent,LoginComponent,NavbarComponent,
-    NotfoundComponent,SignupComponent,ReactiveFormsModule,CommonModule,HttpClientModule],
+  imports: [RouterOutlet,HomeComponent,AboutComponent,BrandsComponent,
+    CartComponent,CategoriesComponent,FooterComponent,LoginComponent,
+    NavbarComponent,NotfoundComponent,SignupComponent,
+    ReactiveFormsModule,CommonModule,HttpClientModule,MainsliderComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   providers:[AuthService,ProductsService]

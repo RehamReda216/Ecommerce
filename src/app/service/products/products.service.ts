@@ -13,4 +13,12 @@ export class ProductsService {
   { 
       return this._HttpClient.get('https://route-ecommerce.onrender.com/api/v1/products');
   }
+  getProductDetailById(id:string):Observable<any>
+  {
+    return this._HttpClient.get(`https://route-ecommerce.onrender.com/api/v1/products/${id}`);
+  }
+  getCategories():Observable<any>
+  {
+    return this._HttpClient.get(`https://route-ecommerce.onrender.com/api/v1/categories`);
+  }
 }

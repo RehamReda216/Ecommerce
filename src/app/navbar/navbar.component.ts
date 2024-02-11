@@ -17,7 +17,6 @@ export class NavbarComponent {
     }    
     constructor(private _AuthService: AuthService)
     {
-        debugger
         _AuthService.userData.subscribe({
           //checks repeatedly on userData
           next:() => {
