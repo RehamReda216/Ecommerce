@@ -9,6 +9,7 @@ import { ProductsService } from '../../service/products/products.service';
 })
 export class FeaturedproductsComponent implements OnInit{
     products:any[] =[];
+    searchTerm:string ='';
     constructor(private _ProductsService:ProductsService){
     }
     ngOnInit():void

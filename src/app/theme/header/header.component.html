@@ -35,14 +35,17 @@
                         <i class="fab mx-2 fa-linkedin"></i>
                         <i class="fab mx-2 fa-youtube"></i>
                 </li>
-                <li *ngIf="!isLogin" class="nav-item">
-                    <a  class="nav-link fw-bold" routerLink="login">Login</a>
+                <li class="nav-item">
+                    <a  *ngIf="!isLogin" class="nav-link fw-bold" routerLink="login">Login</a>
                 </li>
-                <li *ngIf="!isLogin" class="nav-item">
-                    <a  class="nav-link fw-bold" routerLink="signup">Sign Up</a>
+                <li  class="nav-item">
+                    <a  *ngIf="!isLogin" class="nav-link fw-bold" routerLink="signup">Sign Up</a>
                 </li> 
-                <li *ngIf="isLogin" class="nav-item">
-                    <span (click)="logOut()" class=" cursor-pointer nav-link">Log out</span>
+                <li  class="nav-item">
+                    <a *ngIf="isLogin" routerLink="settings" class="nav-link">Settings</a>
+                </li> 
+                <li  class="nav-item">
+                    <span *ngIf="isLogin" (click)="logOut()" class=" cursor-pointer nav-link">Log out</span>
                 </li> 
             </ul>
     </div>

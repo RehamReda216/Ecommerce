@@ -3,7 +3,7 @@ import { Product } from '../../interfaces/product';
 
 @Pipe({
   name: 'search',
-  standalone: true
+  standalone: false
 })
 export class SearchPipe implements PipeTransform {
 

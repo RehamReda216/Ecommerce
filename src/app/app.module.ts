@@ -5,7 +5,7 @@ import { RouterLink, RouterModule } from "@angular/router";
 import { AppRoutingModule } from "./app-routing.module";
 
 import { HttpClientModule } from "@angular/common/http";
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CommonModule } from "@angular/common";
 import { CarouselModule } from "ngx-owl-carousel-o";
@@ -27,6 +27,7 @@ import { SeemorePipe } from "./pipes/seemore/seemore.pipe";
 import { ProductsService } from "./service/products/products.service";
 import { AuthService } from "./service/auth/auth.service";
 import { HeaderComponent } from "./theme/header/header.component";
+import { SearchPipe } from "./pipes/search/search.pipe";
 
 
 @NgModule({
@@ -46,7 +47,7 @@ import { HeaderComponent } from "./theme/header/header.component";
     MainsliderComponent,
     ProductdetailsComponent,
     CategoriesComponent,
-    BrandsComponent,FeaturedproductsComponent,SeemorePipe
+    BrandsComponent,FeaturedproductsComponent,SeemorePipe,SearchPipe
   ],
   imports: [
     
@@ -56,6 +57,7 @@ import { HeaderComponent } from "./theme/header/header.component";
     CarouselModule,
     HttpClientModule,
     ReactiveFormsModule,
+    FormsModule,
     CommonModule
   ],
   providers:[AuthService,ProductsService],

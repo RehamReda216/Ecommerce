@@ -22,7 +22,9 @@ export const routes: Routes = [
     {path:'brands',canActivate:[authGuard],component:BrandsComponent},
     {path:'signup',component:SignupComponent},
     {path:'login',component:LoginComponent},
-    {path:'**',component:NotfoundComponent}
+    {path:'settings',loadChildren:()=> import('./Pages/settings/settings.module').then((m)=>m.SettingsModule)},
+    {path:'**',component:NotfoundComponent} 
+
 
 ];
 
