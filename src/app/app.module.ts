@@ -29,7 +29,7 @@ import { AuthService } from "./service/auth/auth.service";
 import { HeaderComponent } from "./theme/header/header.component";
 import { SearchPipe } from "./pipes/search/search.pipe";
 import { CheckoutComponent } from "./Pages/checkout/checkout.component";
-import { headerInterceptor } from "./interceptor/header.interceptor";
+import { HeaderInterceptor } from "./interceptor/header.interceptor";
 
 
 @NgModule({
@@ -66,7 +66,8 @@ import { headerInterceptor } from "./interceptor/header.interceptor";
   providers:[AuthService,ProductsService
     ,{
       provide:HTTP_INTERCEPTORS,
-      useClass:headerInterceptor
+      useClass:HeaderInterceptor,
+      multi:true
     }
   ],
   bootstrap: [AppComponent],

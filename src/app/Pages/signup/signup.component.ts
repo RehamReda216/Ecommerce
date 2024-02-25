@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../service/auth/auth.service';
 import { Router, RouterModule } from '@angular/router';
+import { register } from 'module';
 
 @Component({
   selector: 'app-signup',
@@ -22,8 +23,22 @@ export class SignupComponent {
       password: new FormControl(null,[Validators.required,Validators.pattern(/^[A-Z][a-z0-9]{5,10}$/)]), 
       rePassword: new FormControl(null,[Validators.required,Validators.pattern(/^[A-Z][a-z0-9]{5,10}$/)]),
       phone:new FormControl(null,[Validators.required,Validators.pattern(/^01[0125][0-9]{8}$/)]),
-    })
+    }, {validators: this.rePasswordMatch});
 
+    rePasswordMatch(registerForm:any)
+    {
+      let passwordControl =  registerForm.get('password');
+      let rePasswordControl = registerForm.get('rePassword');
+
+      if(passwordControl.value === rePasswordControl.value)
+      {
+        return null;
+      }
+      else{
+            rePasswordControl.setErrors({passwordmatch:'password and repassword not match'})
+            return {passwordmatch:'password and repassword not match'}
+      }
+    }
     handleRegister(registerForm:FormGroup)
     {
       this.isLoading = true;
