@@ -23,6 +23,6 @@ export class ProductsService {
   }
   getBrands():Observable<any>
   {
-    return this._HttpClient.get(`https://route-ecommerce.onrender.com/api/v1/brands`);
+    return this._HttpClient.get(`https://route-ecommerce.onrender.com/api/v1/brands`,);
   }
 }

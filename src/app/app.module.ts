@@ -4,7 +4,7 @@ import { AppComponent } from "./app.component";
 import { RouterLink, RouterModule } from "@angular/router";
 import { AppRoutingModule } from "./app-routing.module";
 
-import { HttpClientModule } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { CommonModule } from "@angular/common";
@@ -28,6 +28,8 @@ import { ProductsService } from "./service/products/products.service";
 import { AuthService } from "./service/auth/auth.service";
 import { HeaderComponent } from "./theme/header/header.component";
 import { SearchPipe } from "./pipes/search/search.pipe";
+import { CheckoutComponent } from "./Pages/checkout/checkout.component";
+import { headerInterceptor } from "./interceptor/header.interceptor";
 
 
 @NgModule({
@@ -47,6 +49,7 @@ import { SearchPipe } from "./pipes/search/search.pipe";
     MainsliderComponent,
     ProductdetailsComponent,
     CategoriesComponent,
+    CheckoutComponent,
     BrandsComponent,FeaturedproductsComponent,SeemorePipe,SearchPipe
   ],
   imports: [
@@ -60,7 +63,12 @@ import { SearchPipe } from "./pipes/search/search.pipe";
     FormsModule,
     CommonModule
   ],
-  providers:[AuthService,ProductsService],
+  providers:[AuthService,ProductsService
+    ,{
+      provide:HTTP_INTERCEPTORS,
+      useClass:headerInterceptor
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

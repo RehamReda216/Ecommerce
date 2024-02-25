@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../service/auth/auth.service';
 import { Router } from '@angular/router';
+import { CartService } from '../../service/cart/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -9,14 +10,16 @@ import { Router } from '@angular/router';
   styleUrl: './header.component.css',
 })
 export class HeaderComponent {
-    
     isLogin:boolean=false;
+    cartNumbers:number=0;
     logOut(){
       this._AuthService.logOut();
     }    
-    constructor(private _AuthService: AuthService)
+    constructor(private _AuthService: AuthService, private _CartService: CartService)
     {
-      debugger
+        _CartService.numberOfCartItems.subscribe({
+          next:(x) => this.cartNumbers = x
+        })
         _AuthService.userData.subscribe({
           //checks repeatedly on userData
           next:() => {

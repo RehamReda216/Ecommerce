@@ -68,3 +68,7 @@
     background-color: var(--light-color) !important;
  }
  
+ .border-main
+ {
+   border: solid 1px var(--main-color) !important;
+ }

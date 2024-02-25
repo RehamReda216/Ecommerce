@@ -14,6 +14,9 @@ export class MainsliderComponent {
     touchDrag: true,
     pullDrag: true,
     dots: false,
+    autoplay: true, // Enables autoscrolling
+    autoplayTimeout: 3000, // Duration of each autoscroll transition (in milliseconds)
+    autoplayHoverPause: true, // Pauses autoscrolling on hover (optional)
     navSpeed: 700,
     navText: ['', ''],
     responsive: {

@@ -10,6 +10,7 @@ import { NotfoundComponent } from './theme/notfound/notfound.component';
 import { SignupComponent } from './Pages/signup/signup.component';
 import { authGuard } from './guard/auth.guard';
 import { ProductdetailsComponent } from './Pages/productdetails/productdetails.component';
+import { CheckoutComponent } from './Pages/checkout/checkout.component';
 
 export const routes: Routes = [
 
@@ -18,6 +19,7 @@ export const routes: Routes = [
     {path:'about',canActivate:[authGuard],component:AboutComponent},
     {path:'categories',canActivate:[authGuard],component:CategoriesComponent},
     {path:'cart',canActivate:[authGuard],component:CartComponent},
+    {path:'checkout',canActivate:[authGuard],component:CheckoutComponent},
     {path:'productdetails/:id',canActivate:[authGuard],component:ProductdetailsComponent},
     {path:'brands',canActivate:[authGuard],component:BrandsComponent},
     {path:'signup',component:SignupComponent},
